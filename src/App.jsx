@@ -1,14 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import HomePage from './pages/HomePage';
+import ArticlePage from './pages/ArticlePage';
+
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <h1 className="text-4xl font-bold text-center py-8 text-primary">
-        NewsQuaters
-      </h1>
-      <p className="text-center text-grayText">
-        Your News Reader App is ready!
-      </p>
-    </div>
+    <Router>
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/article/:id" element={<ArticlePage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
